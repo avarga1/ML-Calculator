@@ -5,7 +5,7 @@ Wherein I attempt to replicate a primitive calculator using sophisticated comput
 
 She was made in Alberta, and inspired by the TI 89 Titanium, (Texas Instruments)
 So naturally we will refer to this one as the AI 0.89 Arsenic, (Alberta Instruments, arsenic  to keep with the matal theme
-but eluding to it efficacy, because if you had to do any serious math, neither of these would be good for your health. Also, AI little play on words there ;), please,
+but eluding to it efficacy, because if you had to do any serious math, neither of these would be good for your health. Also, AI... little play on words there ;), please,
 hold your applause.) Alright let's dive in. 
 
 This code uses the TensorFlow library to train a neural network to perform basic arithmetic operations. 
