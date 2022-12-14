@@ -91,7 +91,8 @@ Thank you for wasting your time with me and getting to know a little bit about h
 not sure how we got a nuclear bomb 16 years prior to a calculator??? Priorities I suppose...
 
 
-If you would like to purchase the rights to my calculator it will be for sale on my etsy store for 1 million dollars.
+If you would like to purchase the rights to my calculator it will be for sale on my etsy store for 1 million dollars. Use coupon code "Thanks" to add a 18% gratuity 
+at check-out!
 
 Cheers!!!
 
