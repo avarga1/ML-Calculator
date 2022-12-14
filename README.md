@@ -1,8 +1,11 @@
 # ML-Calculator 
-Because TI is soooo last year.
+Welcome to my python script, a 221 line exercise in floccinaucinihilipilification (yes, that is a noun in the english language. 
+and no it could not be better suited for anything else.)
+Wherein I attemp to replicate a primitive calculator using sophisticated computer hardware, because there is clearly no greater pursuit.
+
 She was made in Alberta, and inspired by the TI 89 Titanium, (Texas Instruments)
 So naturally we will refer to this one as the AI 0.89 Arsenic, (Alberta Instruments, arsenic  to keep with the matal theme
-but eluding to it efficacy, because if you had to do any serious math noth of these would be bad for your health. Also, AI little play on words there ;), please,
+but eluding to it efficacy, because if you had to do any serious math, neither of these would be good for your health. Also, AI little play on words there ;), please,
 hold your applause.) Alright let's dive in. 
 
 This code uses the TensorFlow library to train a neural network to perform basic arithmetic operations. 
@@ -88,14 +91,17 @@ arbitrarilly represents '+' operation, I didn't cheat, okay.
 
 should all go as intended (granted I have any level of competancy) you should arrive at output = 4
 
-Yes, I did in fact spend 1.12 days programming an ML model so that you can add 2 and 2, thanks for asking.
+Yes, I did in fact spend 1.12 days programming an ML model so that you can add 2 and 2, thanks for asking... What's that?  The most rewarding part, you ask?
+Writing this README, by several orders of magnitude.
 
 Thank you for wasting your time with me and getting to know a little bit about how to wildly over-complicate a task that was solved circa 1961 shout out ANITA!
-not sure how we got a nuclear bomb 16 years prior to a calculator??? Priorities I suppose...
+(side note:
+not sure how we got a nuclear bomb 16 years prior to a calculator??? Priorities I suppose...)
+anyways...
 
 
-If you would like to purchase the rights to my calculator it will be for sale on my etsy store for 1 million dollars. Use coupon code "Thanks" to add a 18% gratuity 
-at check-out!
+If you would like to purchase the rights to my calculator it will be for sale on my etsy store for 1 million dollars. Use coupon code "Thanks" to add an 18% gratuity 
+at check-out! If I don't sell atleast 9 I'm going to pursue a career in satire instead, so tell a friend! Buy 1 get 1, 1% off
 
 Cheers!!!
 
