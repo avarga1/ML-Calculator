@@ -60,7 +60,7 @@ in cmd prompt will invoke training of the model, given len(sys.argv[1]) == 1
 
 you first need specify the number of data points you wish to collect within the program; via this line of code.
 ```
-num_nums = 10_000 # number of numbers to use in the training data from each operation
+num_nums = 10_000 # number of numbers to use in the training data from each operation yes i used num_nums, no i will not change it.
 ```
 
 You can then adjust these hyper-parameters as you see fit.
@@ -106,7 +106,10 @@ at check-out! If I don't sell atleast 9 I'm going to pursue a career in satire i
 Cheers!!!
 
 
+# License
 
+do whatever you please with this, use it to its fullest extent, emplore its limitless powers and go make a difference in the world!
+BUT, under no circumstance can you change the name of num_nums.
 
 
 
