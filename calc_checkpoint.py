@@ -4,13 +4,18 @@ import math
 import sys
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint
+import os
 
 
-num_nums = 5000 # number of numbers to use in the training data from each operation
-epochs = 10000 # number of times to run the training data through the model
+num_nums = 10000 # number of numbers to use in the training data from each operation
+
 learning_rate = 0.01 # how fast to learn
-batch_size = 100 # number of training examples to use in each training step
-save_interval = 100 # how often to save the model
+batch_size = 32 # number of training examples to use in each training step
+epochs = 10_000 # number of times to run the training data through the model
+epoch_save_freq = 1000 # how often to save the model
+save_interval = 100000 # how often to save the model
+#model_file = 'C:\Users\austi\vs_code\coursera\model.h5' # file to save the model to
+optimizer = Adam(lr=learning_rate) # optimizer to use
 
 
 #===================================================================================================
@@ -83,26 +88,30 @@ def split_data(x_data, y_data):
 # Create the model
 #===================================================================================================
 
-def create_model():
+def create_model(weights=None):
     # create the model
     # create a sequential model
     model = tf.keras.Sequential()
-    # add a dense layer with 100 neurons and an input shape of 3
-    model.add(tf.keras.layers.Dense(100, input_shape=(3,)))
+    # add a dense layer with 100 neurons and an input shape of 3, initialize with saved weights if provided
+    model.add(tf.keras.layers.Dense(100, input_shape=(3,), weights=weights[0] if weights else None))
     # add a relu activation function
     model.add(tf.keras.layers.Activation('relu'))
-    # add a dense layer with 100 neurons
-    model.add(tf.keras.layers.Dense(100))
+    # add a dense layer with 100 neurons, initialize with saved weights if provided
+    model.add(tf.keras.layers.Dense(100, weights=weights[1] if weights else None))
     # add a relu activation function
     model.add(tf.keras.layers.Activation('relu'))
-    # add a dense layer with 1 neuron
-    model.add(tf.keras.layers.Dense(1))
+    # add a dense layer with 100 neurons, initialize with saved weights if provided
+    model.add(tf.keras.layers.Dense(100, weights=weights[2] if weights else None))
+    # add a relu activation function
+    model.add(tf.keras.layers.Activation('relu'))
+    # add a dense layer with 1 neuron, initialize with saved weights if provided
+    model.add(tf.keras.layers.Dense(1, weights=weights[3] if weights else None))
 
     # compile the model
+    # use the adam optimizer
     # use mean squared error as the loss function
-    # use adam as the optimizer
-    model.compile(loss='mean_squared_error', optimizer=Adam(lr=0.001))
-
+    # use accuracy as the metric
+    model.compile(optimizer=optimizer, loss='mean_squared_error', metrics=['accuracy'])
 
     return model
 
@@ -110,34 +119,24 @@ def create_model():
 # Train the model
 #===================================================================================================
 
-def train_model(model, train_x, train_y, test_x, test_y):    
+def train_model(model, train_x, train_y, test_x, test_y):   
+    # if the model file exists, load the weights and bias from the file
+    # create a checkpoint to save the model weights and bias after each epoch
+    checkpoint = tf.keras.callbacks.ModelCheckpoint('add_sub_mul_div_model.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min', save_freq=save_interval)
+    
+    if os.path.exists('add_sub_mul_div_model.h5'):
+        model.load_weights('add_sub_mul_div_model.h5')
     # train the model
-    # train the model for 100 epochs
-    # use 20% of the data for validation
-    # use the test data as the validation data
-    # print the loss and accuracy after each epoch
-    # save the model to a file
-    checkpoint = ModelCheckpoint(filepath='/path/to/save/model.h5', save_freq=10)
     model.fit(train_x, train_y, epochs=epochs, batch_size=batch_size, validation_split=0.2, validation_data=(test_x, test_y), callbacks=[checkpoint])
+
+    # save the model to a file
     model.save('add_sub_mul_div_model.h5')
 
     return model
 
+
 #===================================================================================================
-# Test the model
-#===================================================================================================
-
-# Test the model
-def test_model(model, test_x, test_y):
-    # test the model
-    # use the test data to test the model
-    # print the loss and accuracy
-    # load the model from the file
-    model = tf.keras.models.load_model('add_sub_mul_div_model.h5')
-    loss = model.evaluate(test_x, test_y)
-
-   
-
+# Predict the result
 #===================================================================================================
 
 # Predict the result
@@ -161,28 +160,59 @@ def predict_result(model, x_data, y_data):
 def main():
     # create the data
     x_data, y_data = create_data()
-
     # split the data into training and test sets
     train_x, train_y, test_x, test_y = split_data(x_data, y_data)
-
     # create the model
     model = create_model()
-
     # train the model
     model = train_model(model, train_x, train_y, test_x, test_y)
-
-    # test the model
-    test_model(model, test_x, test_y)
-
     # predict the result
     predict_result(model, test_x, test_y)
+
+#===================================================================================================
+# convert operator to integer
+#===================================================================================================
+def op_to_int(op):
+    if op == '+':
+        return 0
+    elif op == '-':
+        return 1
+    elif op == '*':
+        return 2
+    elif op == '/':
+        return 3
+    else:
+        sys.exit(F"Invalid operator: {op}")
+
+#===================================================================================================
+# use the model to predict the result
+#===================================================================================================
+def use_calc():
+    # prompt the user to enter 2 numbers and an operator
+    # use the model to predict the result
+    # load the model from the file
+    model = tf.keras.models.load_model('add_sub_mul_div_model.h5')
+    x, op, y = input("Enter 2 numbers and an operator (num1 op num2): ").split(" ")
+    # use the model to predict the result and give error if zero division
+    try:
+        predict_result(model, np.array([[int(x), int(y), op_to_int(op)]]).astype(np.float32), np.array([0]))
+    except ZeroDivisionError:
+        print("Error: Division by zero")
+
+    # print result vs actual result
+    print(F"Result: {x} {op} {y} = {predict_result(model, np.array([[int(x), int(y), op_to_int(op)]]), np.array([0]))}")
 
 #===================================================================================================
 # Run the main function
 #===================================================================================================
 
-if __name__ == '__main__':
+# main() conditional to run main() or use_calc()
+if len(sys.argv) == 1:
     main()
+elif len(sys.argv) == 2:
+    use_calc()
+
+# conditional to run use_calc() or main()
 
 
 
