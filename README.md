@@ -109,7 +109,13 @@ Cheers!!!
 # License
 
 do whatever you please with this, use it to its fullest extent, emplore its limitless powers and go make a difference in the world!
-BUT, under no circumstance can you change the name of num_nums.
+
+BUT, head my warning bretherine. under no circumstance can you change the name of num_nums. Or i will find you, and I will cordially request you change it back.
+oh and also, please don't sell it on your Etsy store, I wish to maintain my current monopoly.
+
+With warmest wishes,
+
+avarga1
 
 
 
