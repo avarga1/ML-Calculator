@@ -3,7 +3,7 @@ Because TI is soooo last year.
 She was made in Alberta, and inspired by the TI 89 Titanium, (Texas Instruments)
 So naturally we will refer to this one as the AI 0.89 Arsenic, (Alberta Instruments, arsenic  to keep with the matal theme
 but eluding to it efficacy, because if you had to do any serious math noth of these would be bad for your health. Also, AI little play on words there ;), please,
-hold your applause.) Alright let's dive in.
+hold your applause.) Alright let's dive in. 
 
 This code uses the TensorFlow library to train a neural network to perform basic arithmetic operations. 
 The network is trained using a set of random numbers and the corresponding results of four different operations: addition,
@@ -72,6 +72,9 @@ optimizer = Adam(lr=learning_rate) # optimizer to use
 
 Now you are off to the races, 
 
+** ALTERNATIVELY - if you do not particularly fancy training this model, (but fancy using the ensuing operation? weird.) 
+you can use the h5 attached. 1 like = 1 h5.
+
 # using
 
 To invoke usage of said calculator
@@ -85,7 +88,7 @@ arbitrarilly represents '+' operation, I didn't cheat, okay.
 
 should all go as intended (granted I have any level of competancy) you should arrive at output = 4
 
-Yes, I did in fact spend 2 days programming an ML model so that you can add 2 and 2, thanks for asking.
+Yes, I did in fact spend 1.12 days programming an ML model so that you can add 2 and 2, thanks for asking.
 
 Thank you for wasting your time with me and getting to know a little bit about how to wildly over-complicate a task that was solved circa 1961 shout out ANITA!
 not sure how we got a nuclear bomb 16 years prior to a calculator??? Priorities I suppose...
