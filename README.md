@@ -1,7 +1,7 @@
 # ML-Calculator 
 Welcome to my python script, a 221 line exercise in floccinaucinihilipilification (yes, that is a noun in the english language. 
 and no it could not be better suited for anything else.)
-Wherein I attemp to replicate a primitive calculator using sophisticated computer hardware, because there is clearly no greater pursuit.
+Wherein I attempt to replicate a primitive calculator using sophisticated computer hardware, because there is clearly no greater pursuit.
 
 She was made in Alberta, and inspired by the TI 89 Titanium, (Texas Instruments)
 So naturally we will refer to this one as the AI 0.89 Arsenic, (Alberta Instruments, arsenic  to keep with the matal theme
